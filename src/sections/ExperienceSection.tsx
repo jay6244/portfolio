@@ -22,7 +22,7 @@ export default function ExperienceSection() {
                 {exp.role}
               </h3>
               <p className="text-[#0C0C0C]/60 uppercase tracking-widest text-xs sm:text-sm mt-1 mb-3 transition-colors duration-300 group-hover:text-[#B600A8]">
-                {exp.org}
+                {exp.org} · {exp.period}
               </p>
               <p className="prose-serif text-[#0C0C0C]/75 text-sm sm:text-base leading-relaxed">
                 {exp.description}

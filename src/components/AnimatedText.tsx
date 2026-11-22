@@ -18,13 +18,16 @@ export default function AnimatedText({ text, className, style }: AnimatedTextPro
 
   return (
     <p ref={ref} className={className} style={style}>
-      {chars.map((char, i) => {
-        const start = i / chars.length;
-        const end = start + 1 / chars.length;
-        return (
-          <Char key={i} char={char} progress={scrollYProgress} start={start} end={end} />
-        );
-      })}
+      <span className="sr-only">{text}</span>
+      <span aria-hidden="true">
+        {chars.map((char, i) => {
+          const start = i / chars.length;
+          const end = start + 1 / chars.length;
+          return (
+            <Char key={i} char={char} progress={scrollYProgress} start={start} end={end} />
+          );
+        })}
+      </span>
     </p>
   );
 }

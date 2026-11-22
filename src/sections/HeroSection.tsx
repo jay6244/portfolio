@@ -2,11 +2,21 @@ import { Suspense, lazy } from 'react';
 import { Cpu, ArrowRight } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
 import ContactButton from '../components/ContactButton';
+import ErrorBoundary from '../components/ErrorBoundary';
 import ScrambleText from '../components/ScrambleText';
 import TypewriterText from '../components/TypewriterText';
 import { profile } from '../data/content';
 
 const ThreeScene = lazy(() => import('../components/3d/ThreeScene'));
+
+const sceneFallback = (
+  <div
+    className="absolute inset-0"
+    style={{
+      background: 'radial-gradient(circle at 65% 45%, rgba(118,33,176,0.18), transparent 55%)',
+    }}
+  />
+);
 
 const ROTATING_WORDS = ['Systems', 'Agents', 'Machines', 'Tools'];
 
@@ -25,19 +35,11 @@ const item: Variants = {
 export default function HeroSection() {
   return (
     <section id="top" className="relative w-full h-screen min-h-[720px] overflow-hidden" style={{ background: '#0c0c0c' }}>
-      <Suspense
-        fallback={
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                'radial-gradient(circle at 65% 45%, rgba(118,33,176,0.18), transparent 55%)',
-            }}
-          />
-        }
-      >
-        <ThreeScene />
-      </Suspense>
+      <ErrorBoundary fallback={sceneFallback}>
+        <Suspense fallback={sceneFallback}>
+          <ThreeScene />
+        </Suspense>
+      </ErrorBoundary>
 
       <div
         className="absolute inset-0 pointer-events-none z-[5]"

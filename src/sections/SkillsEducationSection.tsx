@@ -39,7 +39,7 @@ export default function SkillsEducationSection() {
                     {edu.degree}
                   </p>
                   <p className="text-[#0C0C0C]/60 uppercase tracking-widest text-xs sm:text-sm mt-1 mb-2">
-                    {edu.school}
+                    {edu.school} · {edu.period}
                   </p>
                   <p className="prose-serif text-[#0C0C0C]/75 text-sm leading-relaxed">{edu.description}</p>
                 </div>

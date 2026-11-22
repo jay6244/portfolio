@@ -21,8 +21,8 @@ export default function ContactSection() {
 
       <FadeIn delay={0.15}>
         <p className="prose-serif text-[#D7E2EA]/80 mt-6 max-w-lg text-sm sm:text-base leading-relaxed">
-          Open to entry-level roles in cloud engineering, backend/software engineering, AI/ML,
-          and cybersecurity — reach out and I'll get back to you quickly.
+          Open to entry-level software engineering roles in backend and AI/ML — reach out and
+          I'll get back to you quickly.
         </p>
       </FadeIn>
 

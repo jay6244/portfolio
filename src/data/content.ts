@@ -3,7 +3,7 @@ export const profile = {
   tagline: 'Computer Science • AI/ML • Backend • Cloud • Software Engineering',
   heroLine1: "hi, i'm jaya",
   heroSub:
-    'mechatronics engineer turned AI/ML software engineer — I build the hardware-facing systems and the models that talk to them',
+    'mechatronics engineer turned software engineer — I build backend APIs and the AI systems behind them, from RAG pipelines to multi-agent workflows',
   bio: `I'm Jaya Sankar Pattem, a Computer Science graduate with a multidisciplinary background in software engineering, AI/ML, cloud-integrated applications, and robotics. I enjoy building practical systems that connect intelligent models with usable applications—from multi-agent AI pipelines and local RAG agents to authenticated industrial chatbots and distributed ML projects. I'm targeting early-career software engineering roles where I can build backend APIs, AI-assisted systems, cloud-integrated applications, and reliable, testable product workflows.`,
   email: 'jayasankarnaidu07@gmail.com',
   github: 'https://github.com/jay6244',
@@ -116,7 +116,7 @@ export const featuredProjects: Project[] = [
     name: 'Multi-Agent Text-to-SQL',
     category: 'AI/ML / Multi-Agent Systems / NLP',
     description:
-      "Most text-to-SQL demos stop at generating a query — they never check whether it actually runs, let alone whether it's correct. I built a 5-agent LangGraph pipeline where a Validator agent executes every generated query against the real database and a Critic agent analyzes failures and regenerates SQL until it succeeds or hits a retry limit, then evaluated the system honestly against Spider2-Lite instead of only reporting the numbers that look good.",
+      "Most text-to-SQL demos stop at generating a query — they never check whether it actually runs, let alone whether it's correct. I built a 5-agent LangGraph pipeline where a Validator agent executes every generated query against the real database and a Critic agent analyzes failures and regenerates SQL until it succeeds or hits a retry limit, then ran a preliminary evaluation against Spider2-Lite.",
     techStack: ['Python', 'FastAPI', 'LangGraph', 'sentence-transformers', 'Ollama', 'Mistral 7B', 'SQLite', 'SSE'],
     highlights: [
       'Designed a 5-agent pipeline: Schema Retrieval → Query Planner → SQL Generator → Validator → Critic/Refinement',
@@ -126,15 +126,13 @@ export const featuredProjects: Project[] = [
       'Streamed agent progress to the frontend over Server-Sent Events',
     ],
     benchmarkResults: [
-      { label: 'Execution success', value: '60%' },
-      { label: 'Exact-match accuracy', value: '0%' },
-      { label: 'First-attempt validity', value: '20%' },
+      { label: 'Valid on first attempt', value: '20%' },
+      { label: 'Executable after refinement', value: '60%' },
       { label: 'Schema recall', value: '79.9%' },
-      { label: 'Error-resolution rate', value: '50%' },
-      { label: 'Avg. refinements', value: '2.0' },
     ],
     benchmarkNote:
-      "Spider2-Lite, n=5 cases — a small preliminary evaluation. Exact-result matching remains the main improvement area; the current version prioritizes execution-valid SQL generation and iterative refinement behavior.",
+      "Spider2-Lite, 5 cases — a small preliminary run. The Critic loop lifted executable queries from 20% to 60%; exact-result matching is the next improvement area.",
+    github: 'https://github.com/jay6244/text2sql-generator',
     pipelineStages: ['Schema Retrieval', 'Query Planner', 'SQL Generator', 'Validator + Critic'],
     workflowSteps: ['Ask a question in English', 'Agents plan + generate SQL', 'Validator executes against DB', 'Critic refines on failure'],
   },
@@ -151,6 +149,7 @@ export const featuredProjects: Project[] = [
       'Built full create/update/delete user workflow tests plus negative validation for missing fields',
       'Added smoke and regression suites with type-checking and linting enforced in CI',
     ],
+    github: 'https://github.com/jay6244/API-TESTING',
     pipelineStages: ['Test Spec', 'Zod Schema Check', 'Playwright Runner', 'GitHub Actions CI'],
     workflowSteps: ['Define contract in Zod', 'Run auth + CRUD scenarios', 'Validate response schemas', 'CI blocks on failure'],
   },
@@ -166,6 +165,7 @@ export const featuredProjects: Project[] = [
       'Built a Pytest + HTTPX test suite with CI enforcement',
       'Linted with Ruff and containerized with Docker',
     ],
+    github: 'https://github.com/jay6244/url-shortner',
     pipelineStages: ['Pydantic Schema', 'SQLModel + SQLite', 'FastAPI Routes', 'GitHub Actions CI'],
     workflowSteps: ['Submit a long URL', 'Validate + generate slug', 'Store via SQLModel', 'CI runs Pytest + Ruff'],
   },
@@ -318,20 +318,23 @@ export const otherProjects: Project[] = [
 
 export const experience = [
   {
-    role: 'Internship / Team Project',
+    role: 'Software Developer Intern',
     org: 'FutureBots',
+    period: 'Nov 2025 – Mar 2026',
     description:
       'Built the document ingestion (PyMuPDF) and hybrid retrieval layer (ChromaDB + BM25) for an industrial assistant/chatbot, implemented the S3 manuals-upload flow via boto3, and built the authenticated React/Ant Design frontend with per-user chat history.',
   },
   {
     role: 'Front End & Software Developer Intern',
     org: 'Penna Cement Industries Limited',
+    period: 'Aug 2022 – May 2024',
     description:
-      'Worked with web-development technologies including HTML, CSS, JavaScript, React, Python, Git, and REST-style integration — exposure to software development in an industrial/business environment.',
+      'Built React front-end features with HTML, CSS, and JavaScript and integrated them with REST-style APIs, using Python and Git in an industrial/business environment.',
   },
   {
-    role: 'Summer 2025 Branch Operations Experience',
+    role: 'Branch Operations Experience',
     org: 'RBFCU',
+    period: 'Summer 2025',
     description:
       'Participated in a summer experience involving branch operations, market research, mentorship, and a final evaluation — business-facing experience alongside the technical portfolio.',
   },
@@ -341,12 +344,14 @@ export const education = [
   {
     degree: "Master's in Computer Science",
     school: 'Texas A&M University–Corpus Christi',
+    period: 'Graduated May 2026',
     description:
       'Graduate-level work in AI/ML, Deep Learning, NLP, Human-Computer Interaction, Distributed Systems, Wireless Sensor Networks, Automata, Digital Image Processing, and Information Assurance — including research on large language models and text-to-SQL.',
   },
   {
     degree: "Bachelor's in Mechatronics",
     school: 'SRM University',
+    period: 'Aug 2019 – May 2023',
     description:
       'A multidisciplinary foundation spanning programming, automation, robotics, electronics, and mechanical systems — where an interest in artificial intelligence took hold.',
   },

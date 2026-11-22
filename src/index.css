@@ -13,6 +13,12 @@ body,
   background: #0c0c0c;
 }
 
+/* Stop decorative/animated elements from causing sideways scroll (clip keeps sticky working). */
+html,
+body {
+  overflow-x: clip;
+}
+
 body {
   font-family: 'Kanit', sans-serif;
 }

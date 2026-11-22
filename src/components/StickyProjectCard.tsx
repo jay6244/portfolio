@@ -119,7 +119,7 @@ export default function StickyProjectCard({
           <div className="flex flex-col gap-1.5">
             <div className="flex flex-wrap items-center gap-2">
               <span className="flex items-center gap-1.5 text-[#4c8dff] text-[10px] sm:text-xs uppercase tracking-wide flex-shrink-0">
-                <BarChart3 size={13} /> Measured benchmark
+                <BarChart3 size={13} /> Preliminary evaluation
               </span>
               {project.benchmarkResults.map((r) => (
                 <span
